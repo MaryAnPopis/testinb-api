@@ -1,6 +1,7 @@
 const express = require("express");
 const port = process.env.PORT || 5000;
 const app = express();
+const cors = require("cors");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 require("dotenv").config();
@@ -13,6 +14,7 @@ const testcase = require("./routes/testcase");
 const testrun = require("./routes/testrun");
 const upload = require("./routes/upload");
 
+app.use(cors());
 app.listen(port, () => console.log(`Server started on port ${port}`));
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: true }));
