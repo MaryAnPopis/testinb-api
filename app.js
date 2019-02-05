@@ -44,7 +44,7 @@ app.use((req, res, next) => {
 
 // Error handling
 app.use((req, res, next) => {
-  const error = new Error("404 - Not found");
+  const error = new Error("404 Not found");
   error.status = 404;
   next(error);
 });
