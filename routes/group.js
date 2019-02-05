@@ -9,7 +9,8 @@ router.post("/", (req, res) => {
   const group = {
     name: req.body.name,
     logo: req.body.logo,
-    idOwner: req.body.idOwner
+    idOwner: req.body.idOwner,
+    isActive: req.body.isActive
   };
 
   const sql = "INSERT INTO groups SET ?";
