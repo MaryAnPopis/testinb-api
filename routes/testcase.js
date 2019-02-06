@@ -79,6 +79,22 @@ router.get("/testsuite/:idTestSuite", (req, res) => {
 });
 
 /**
+ * Get one test case by id
+ * @param id test case id
+ */
+router.get("/:id", (req, res) => {
+  let sql = `SELECT * from test_cases where id = ${req.params.id}`;
+  db.query(sql, (err, result) => {
+    if (err) {
+      console.err(`GET/:id error ${err}`);
+      throw err;
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+/**
  * Get all steps by test case
  * @param id test cases id
  */
@@ -109,7 +125,7 @@ router.patch("/step/:id", (req, res) => {
 });
 
 /**
- * Update a steps
+ * Update a test case
  * @param id project id to update
  */
 router.patch("/:id", (req, res) => {
