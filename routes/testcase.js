@@ -12,6 +12,7 @@ router.post("/", (req, res) => {
     description: req.body.description,
     expected_result: req.body.expected_result,
     attachment: req.body.attachment,
+    steps: req.body.steps,
     isActive: req.body.isActive
   };
 
