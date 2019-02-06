@@ -24,8 +24,10 @@ router.post("/", (req, res) => {
  * Get all test suite by group
  * @param id test suite id
  */
-router.get("/group/:idGroup", (req, res) => {
-  let sql = `SELECT * from test_suites where idGroup = ${req.params.idGroup}`;
+router.get("/project/:idProject", (req, res) => {
+  let sql = `SELECT * from test_suites where idProject = ${
+    req.params.idProject
+  }`;
   db.query(sql, (err, result) => {
     if (err) {
       console.err(`GET/:id error ${err}`);
