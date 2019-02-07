@@ -10,7 +10,8 @@ router.post("/", (req, res) => {
     title: req.body.title,
     creation_date: req.body.creationDate,
     idGroup: req.body.idGroup,
-    idProject: req.body.idProject
+    idProject: req.body.idProject,
+    isActive: req.body.isActive
   };
 
   const sql = "INSERT INTO test_suites SET ?";
