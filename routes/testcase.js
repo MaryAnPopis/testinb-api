@@ -61,7 +61,7 @@ router.post("/testsuite", (req, res) => {
  * @param id test suite id
  */
 router.get("/testsuite/:idTestSuite", (req, res) => {
-  const sql = `select tc.id, tc.creation_date, tc.title, tc.description, tc.expected_result, tc.attachment, tc.isActive
+  const sql = `select tc.id, tc.creation_date, tc.title, tc.description, tc.expected_result, tc.attachment, tc.isActive, tc.steps
   from test_cases as tc
   inner join test_cases_x_test_suite as tstc
   ON tc.id = tstc.idTestCase
