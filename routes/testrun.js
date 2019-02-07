@@ -11,7 +11,8 @@ router.post("/", (req, res) => {
     ownerRun: req.body.ownerRun,
     idGroup: req.body.idGroup,
     name: req.body.name,
-    idTestSuite: req.body.idTestSuite
+    idTestSuite: req.body.idTestSuite,
+    isActive: req.body.isActive
   };
 
   const sql = "INSERT INTO test_run SET ?";
