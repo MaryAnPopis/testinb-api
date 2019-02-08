@@ -37,6 +37,21 @@ router.get("/group/:idGroup", (req, res) => {
     }
   });
 });
+/**
+ * Get test run by id
+ * @param id test run id
+ */
+router.get("/:id", (req, res) => {
+  let sql = `SELECT * from test_run where id = ${req.params.id}`;
+  db.query(sql, (err, result) => {
+    if (err) {
+      console.err(`GET/:id error ${err}`);
+      throw err;
+    } else {
+      res.send(result);
+    }
+  });
+});
 
 /**
  * Register test run
