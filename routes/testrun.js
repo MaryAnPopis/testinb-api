@@ -52,6 +52,27 @@ router.get("/:id", (req, res) => {
     }
   });
 });
+/**
+ * Get test cases by test run
+ * @param id test run id
+ */
+router.get("/run/:id", (req, res) => {
+  let sql = `select tc.id, tc.creation_date, tc.title, tc.description, tc.expected_result, tc.attachment, tc.isActive, tc.steps
+  from test_cases as tc
+  inner join test_run_x_test_case as tstc
+  ON tc.id = tstc.idTestCase
+  inner join test_suites as ts
+  ON ts.id = tstc.idTestSuite
+  WHERE ts.id = ${req.params.id}`;
+  db.query(sql, (err, result) => {
+    if (err) {
+      console.err(`GET/:id error ${err}`);
+      throw err;
+    } else {
+      res.send(result);
+    }
+  });
+});
 
 /**
  * Register test run
