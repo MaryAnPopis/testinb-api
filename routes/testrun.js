@@ -61,8 +61,8 @@ router.get("/run/:id", (req, res) => {
   from test_cases as tc
   inner join test_run_x_test_case as tstc
   ON tc.id = tstc.idTestCase
-  inner join test_suites as ts
-  ON ts.id = tstc.idTestSuite
+  inner join test_run as ts
+  ON ts.id = tstc.idTestRun
   WHERE ts.id = ${req.params.id}`;
   db.query(sql, (err, result) => {
     if (err) {
