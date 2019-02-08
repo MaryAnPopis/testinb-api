@@ -57,7 +57,7 @@ router.get("/:id", (req, res) => {
  * @param id test run id
  */
 router.get("/run/:id", (req, res) => {
-  let sql = `select tc.id, tc.creation_date, tc.title, tc.description, tc.expected_result, tc.attachment, tc.isActive, tc.steps
+  let sql = `select tc.id, tc.creation_date, tc.title, tc.description, tc.expected_result, tc.attachment, tc.isActive, tc.steps, tstc.result
   from test_cases as tc
   inner join test_run_x_test_case as tstc
   ON tc.id = tstc.idTestCase
